@@ -18,12 +18,12 @@ public class BatteryMonitor : MonoBehaviour
 	// Update is called once per frame
 	void Update () 
     {
-	   // UpdateStatusIndicators();
+	   UpdateStatusIndicators();
 	}
 
     void UpdateStatusIndicators()
     {
-        var currentBatteryLevel = BatteryLevelPlugin.GetBatteryLevel();
+        var currentBatteryLevel = BatteryLevelPlugin.GetBatteryLevel() * 100f;
         batteryLevelText.text = String.Format("{0}%", currentBatteryLevel);
 
         // Show the icon that matches the current level most closely.

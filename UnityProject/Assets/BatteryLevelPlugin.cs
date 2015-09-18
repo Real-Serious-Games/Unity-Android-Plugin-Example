@@ -4,12 +4,22 @@ using System.Collections;
 
 public class BatteryLevelPlugin 
 {
-    /// <summary>
-    /// Calls native Android Java method to find
-    /// the current device battery level.
-    /// </summary>
-    public static int GetBatteryLevel()
+    public static float GetBatteryLevel()
     {
-        throw new NotImplementedException();
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            using (var androidPlugin = new AndroidJavaClass("com.RSG.AndroidPlugin.AndroidPlugin"))
+            {
+                using (var javaUnityPlayer = new AndroidJavaClass("com.unity3d.player.UnityPlayer"))
+                {
+                    using (var currentActivity = javaUnityPlayer.GetStatic<AndroidJavaObject>("currentActivity"))
+                    {
+                        return androidPlugin.CallStatic<float>("GetBatteryPct", currentActivity);
+                    }
+                }
+            }
+        }
+
+        return 100f;
     }
 }
