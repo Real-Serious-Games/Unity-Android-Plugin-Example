@@ -17,7 +17,7 @@ public class AndroidPlugin
 	}
 
 	// Return the battery level as a float between 0 and 1 (1 being fully charged, 0 fulled discharged)
-    public float GetBatteryPct(Context context)
+    public float GetBatteryPct()
     {
     	Intent batteryStatus = GetBatteryStatusIntent();
 
