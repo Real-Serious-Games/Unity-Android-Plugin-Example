@@ -41,6 +41,6 @@ public class AndroidPlugin
     private Intent GetBatteryStatusIntent()
     {
  		IntentFilter ifilter = new IntentFilter(Intent.ACTION_BATTERY_CHANGED);
-		Intent batteryStatus = context.registerReceiver(null, ifilter);
+		return context.registerReceiver(null, ifilter);
     }
 }
