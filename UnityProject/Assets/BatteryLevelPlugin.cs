@@ -20,6 +20,6 @@ public class BatteryLevelPlugin
             }
         }
 
-        return 100f;
+        return 1f;
     }
 }
