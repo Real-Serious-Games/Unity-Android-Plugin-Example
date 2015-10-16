@@ -20,7 +20,11 @@ public class BatteryMonitor : MonoBehaviour
     {
 	   UpdateStatusIndicators();
 	}
-
+    
+    /// <summary>
+    /// Find the current device battery level and update indicators in the 
+    /// UI accordingly.
+    /// </summary>
     void UpdateStatusIndicators()
     {
         var currentBatteryLevel = BatteryLevelPlugin.GetBatteryLevel() * 100f;
